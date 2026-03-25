@@ -1,0 +1,137 @@
+{
+  "project_name": "Echo - Cinematic Video Transcription",
+  "design_philosophy": {
+    "core_identity": "The Control Room",
+    "emotional_tone": "Immersive, Precise, Cinematic, Focus-Inducing",
+    "visual_style": "Dark Glassmorphism with Neon Accents",
+    "key_principles": [
+      "No Pure Black: Use Deep Obsidian (#050505) for depth.",
+      "Light is Focus: Use glow and brightness to indicate active states (like the current transcript line).",
+      "Glass is Physical: Glass panes must have borders and inner shadows to feel tactile.",
+      "Motion is Meaning: Transitions should be smooth (0.3s ease-out) to mimic high-end AV equipment."
+    ]
+  },
+  "typography": {
+    "font_family": {
+      "headings": "Syne, sans-serif",
+      "body": "Manrope, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-bold tracking-tight",
+      "h2": "text-3xl md:text-4xl font-semibold tracking-tight",
+      "h3": "text-xl md:text-2xl font-medium",
+      "body": "text-base leading-relaxed text-muted-foreground",
+      "timestamp": "text-xs font-mono tracking-wide opacity-70"
+    },
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "bold": 700,
+      "black": 800
+    },
+    "import_url": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Syne:wght@400;700;800&display=swap"
+  },
+  "colors": {
+    "palette": {
+      "background": "#030303",
+      "surface": "#0A0A0A",
+      "surface_glass": "rgba(10, 10, 10, 0.6)",
+      "primary": "#8b5cf6",
+      "primary_glow": "rgba(139, 92, 246, 0.5)",
+      "secondary": "#3f3f46",
+      "accent": "#ec4899",
+      "text_primary": "#ffffff",
+      "text_secondary": "#a1a1aa",
+      "text_dim": "#52525b",
+      "border": "rgba(255, 255, 255, 0.1)"
+    },
+    "usage": {
+      "body_bg": "bg-[#030303]",
+      "card_bg": "bg-black/40 backdrop-blur-xl border border-white/10",
+      "active_item": "bg-white/5 border-l-2 border-primary text-white",
+      "highlight": "text-primary drop-shadow-[0_0_8px_rgba(139,92,246,0.3)]"
+    }
+  },
+  "layout_strategies": {
+    "hero": {
+      "structure": "flex flex-col items-center justify-center min-h-[60vh] relative overflow-hidden",
+      "elements": [
+        "Abstract Background Glow (absolute centered)",
+        "Large Logo/Title (Syne font)",
+        "Input Field (Glassmorphism, max-w-2xl, centered)"
+      ]
+    },
+    "app_shell": {
+      "structure": "grid grid-cols-1 lg:grid-cols-12 gap-6 p-4 md:p-8 h-screen overflow-hidden",
+      "left_panel": "col-span-1 lg:col-span-7 flex flex-col gap-4",
+      "right_panel": "col-span-1 lg:col-span-5 relative h-full rounded-2xl border border-white/10 bg-black/20 overflow-hidden"
+    }
+  },
+  "components": {
+    "VideoPlayer": {
+      "style": "rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.5)] border border-white/5 aspect-video w-full",
+      "container": "relative w-full"
+    },
+    "TranscriptContainer": {
+      "style": "h-full overflow-y-auto pr-2 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-white/10 hover:scrollbar-thumb-white/20",
+      "item_style": "p-4 hover:bg-white/5 transition-colors cursor-pointer rounded-lg mb-2 group",
+      "active_style": "bg-white/5 border-l-2 border-[#8b5cf6]"
+    },
+    "Input": {
+      "base": "bg-white/5 border-white/10 text-lg placeholder:text-white/20 focus:border-[#8b5cf6]/50 focus:ring-1 focus:ring-[#8b5cf6]/50 transition-all rounded-xl py-6 pl-12 shadow-2xl backdrop-blur-md",
+      "icon_wrapper": "absolute left-4 top-1/2 -translate-y-1/2 text-white/40"
+    },
+    "Button": {
+      "primary": "bg-[#8b5cf6] hover:bg-[#7c3aed] text-white font-medium px-8 py-3 rounded-xl shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all active:scale-95",
+      "secondary": "bg-white/10 hover:bg-white/20 text-white backdrop-blur-md border border-white/10 rounded-xl px-6 py-3 transition-all"
+    }
+  },
+  "images": {
+    "background_texture": "https://images.unsplash.com/photo-1763259502801-3d655a106e02?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGRhcmslMjBncmFkaWVudCUyMGdsYXNzJTIwdGV4dHVyZXxlbnwwfHx8fDE3NzEyNjY5NzJ8MA&ixlib=rb-4.1.0&q=85",
+    "usage": "Use as a background image for the main container with opacity-40 and mix-blend-mode-screen to add subtle texture to the dark void."
+  },
+  "icons": {
+    "library": "lucide-react",
+    "mappings": {
+      "search": "Search",
+      "play": "Play",
+      "pause": "Pause",
+      "download": "Download",
+      "copy": "Copy",
+      "check": "Check",
+      "video": "Youtube"
+    }
+  },
+  "motion": {
+    "transitions": "transition-all duration-300 ease-out",
+    "hover_lift": "hover:-translate-y-1",
+    "active_scale": "active:scale-95"
+  },
+  "instructions_to_main_agent": [
+    "Install 'lucide-react' for icons.",
+    "Add the Google Fonts import to the head of public/index.html immediately.",
+    "Configure tailwind.config.js to include the custom colors and fonts defined above.",
+    "Create a 'TranscriptItem' component that accepts 'active' prop to style differently.",
+    "Use the background texture image in the root div with an overlay to ensure text readability.",
+    "Ensure the video player is sticky or fixed on large screens while the transcript scrolls.",
+    "Implement 'scroll to active' logic for the transcript so the current sentence is always in view.",
+    "Use 'sonner' for all notifications (copy success, errors).",
+    "THEME: FORCE DARK MODE. Do not implement a light mode toggle. The app is 'Cinematic Dark' by default."
+  ],
+  "universal_guidelines": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy",
+    "Use glass-morphism effects with backdrop filters (12-24px blur)",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements like button, input excluding transforms",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file. This disrupts the human natural reading flow of text",
+    "Always use modern button styles like pill-shaped, or sharp button with interaction animations & color relevant to the app style",
+    "NEVER: use AI assistant Emoji characters like 🤖🧠 etc for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects, and entrance animations. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, selection states, and loading animations: separates good from extraordinary.",
+    "Components MUST use named exports.",
+    "Pages MUST use default exports."
+  ]
+}

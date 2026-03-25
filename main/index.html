@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+  <!-- Boot Screen -->
+  <div id="boot-screen" class="boot-screen">
+    <div class="boot-logo">
+      <svg viewBox="0 0 170 170" class="apple-logo" xmlns="http://www.w3.org/2000/svg">
+        <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.2-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.28 2.13-9.54 3.24-12.8 3.35-4.92.21-9.84-1.96-14.75-6.52-3.13-2.73-7.05-7.41-11.76-14.04-5.05-7.08-9.2-15.29-12.45-24.65-3.47-10.2-5.21-20.07-5.21-29.59 0-10.95 2.36-20.37 7.08-28.26 3.71-6.31 8.64-11.3 14.82-14.95 6.18-3.66 12.86-5.52 20.05-5.66 3.92 0 9.06 1.21 15.43 3.59 6.35 2.39 10.43 3.6 12.22 3.6 1.34 0 5.87-1.42 13.56-4.24 7.26-2.62 13.39-3.71 18.42-3.28 13.61 1.1 23.83 6.47 30.6 16.15-12.17 7.38-18.19 17.72-18.07 31 .11 10.34 3.86 18.95 11.22 25.8 3.34 3.17 7.07 5.62 11.22 7.35-.9 2.61-1.85 5.11-2.86 7.51zM119.11 7.24c0 8.1-2.96 15.67-8.86 22.67-7.12 8.32-15.73 13.13-25.07 12.37a25.27 25.27 0 01-.19-3.08c0-7.78 3.39-16.1 9.4-22.9 3-3.44 6.82-6.31 11.45-8.6 4.62-2.26 8.99-3.51 13.1-3.74.12 1.1.17 2.2.17 3.28z" fill="white"/>
+      </svg>
+    </div>
+    <div class="boot-progress">
+      <div class="boot-progress-bar"></div>
+      <div class="boot-progress-shimmer"></div>
+    </div>
+  </div>
+
+  <!-- Lock Screen -->
+  <div id="lock-screen" class="lock-screen hidden">
+    <div class="lock-bg"></div>
+    <div class="lock-content">
+      <div class="lock-time" id="lock-time">10:42</div>
+      <div class="lock-date" id="lock-date">Monday, March 23</div>
+      <div class="lock-hint">Click to unlock</div>
+    </div>
+    <div class="lock-login hidden" id="lock-login">
+      <div class="lock-avatar">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="48" height="48"><circle cx="12" cy="8" r="4"/><path d="M12 14c-6.1 0-8 4-8 4v2h16v-2s-1.9-4-8-4z"/></svg>
+      </div>
+      <div class="lock-username" id="lock-username">Admin</div>
+      <div class="lock-input-row">
+        <input type="password" class="lock-password" id="lock-password" placeholder="Password" autocomplete="off">
+        <button class="lock-submit" id="lock-submit">→</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Setup Wizard -->
+  <div id="setup-wizard" class="setup-wizard hidden">
+    <div class="setup-card" id="setup-step-1">
+      <h1>Welcome to NexusOS</h1>
+      <p>Let's personalize your experience.</p>
+      <div class="setup-field">
+        <label for="setup-name">Your Name</label>
+        <input type="text" id="setup-name" placeholder="Enter your name" maxlength="20">
+      </div>
+      <div class="setup-field">
+        <label>Accent Color</label>
+        <div class="setup-colors" id="setup-colors">
+          <button class="color-swatch active" data-color="#0a84ff" style="background:#0a84ff"></button>
+          <button class="color-swatch" data-color="#bf5af2" style="background:#bf5af2"></button>
+          <button class="color-swatch" data-color="#ff375f" style="background:#ff375f"></button>
+          <button class="color-swatch" data-color="#ff9f0a" style="background:#ff9f0a"></button>
+          <button class="color-swatch" data-color="#30d158" style="background:#30d158"></button>
+          <button class="color-swatch" data-color="#64d2ff" style="background:#64d2ff"></button>
+          <button class="color-swatch" data-color="#ffd60a" style="background:#ffd60a"></button>
+          <button class="color-swatch" data-color="#ac8e68" style="background:#ac8e68"></button>
+        </div>
+      </div>
+      <button class="setup-next" id="setup-next-1">Continue</button>
+    </div>
+    <div class="setup-card hidden" id="setup-step-2">
+      <h1>Choose Your Wallpaper</h1>
+      <div class="setup-wallpapers" id="setup-wallpapers">
+        <div class="wallpaper-thumb active" data-wallpaper="0"><div class="wp-preview wp-aurora"></div><span>Aurora</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="1"><div class="wp-preview wp-sunset"></div><span>Sunset Dunes</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="2"><div class="wp-preview wp-glacier"></div><span>Glacier</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="3"><div class="wp-preview wp-void"></div><span>Void</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="4"><div class="wp-preview wp-sonoma"></div><span>Sonoma Hills</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="5"><div class="wp-preview wp-neon"></div><span>Neon City</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="6"><div class="wp-preview" style="background:#222;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px">▶️</div><span>Video 1</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="7"><div class="wp-preview" style="background:#222;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px">▶️</div><span>Video 2</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="8"><div class="wp-preview" style="background:#222;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px">▶️</div><span>Video 3</span></div>
+        <div class="wallpaper-thumb" data-wallpaper="9"><div class="wp-preview" style="background:#222;color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px">▶️</div><span>Video 4</span></div>
+      </div>
+      <button class="setup-next" id="setup-finish">Get Started</button>
+    </div>
+  </div>
+
+  <!-- Desktop -->
+  <div id="desktop" class="desktop hidden">
+    <!-- Wallpaper Layer -->
+    <div id="wallpaper" class="wallpaper wallpaper-aurora"></div>
+    <video id="wallpaper-video" class="wallpaper-video hidden" autoplay loop muted playsinline></video>
+    <canvas id="wallpaper-canvas" class="wallpaper-canvas"></canvas>
+
+    <!-- Desktop Icons -->
+    <div id="desktop-icons" class="desktop-icons"></div>
+
+    <!-- Selection Rectangle -->
+    <div id="selection-rect" class="selection-rect hidden"></div>
+
+    <!-- Windows Container -->
+    <div id="windows-container" class="windows-container"></div>
+
+    <!-- Menu Bar -->
+    <div id="menu-bar" class="menu-bar">
+      <div class="menu-left">
+        <div class="menu-item menu-apple" id="menu-apple">
+          <svg viewBox="0 0 170 170" width="14" height="14" fill="currentColor"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.2-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.28 2.13-9.54 3.24-12.8 3.35-4.92.21-9.84-1.96-14.75-6.52-3.13-2.73-7.05-7.41-11.76-14.04-5.05-7.08-9.2-15.29-12.45-24.65-3.47-10.2-5.21-20.07-5.21-29.59 0-10.95 2.36-20.37 7.08-28.26 3.71-6.31 8.64-11.3 14.82-14.95 6.18-3.66 12.86-5.52 20.05-5.66 3.92 0 9.06 1.21 15.43 3.59 6.35 2.39 10.43 3.6 12.22 3.6 1.34 0 5.87-1.42 13.56-4.24 7.26-2.62 13.39-3.71 18.42-3.28 13.61 1.1 23.83 6.47 30.6 16.15-12.17 7.38-18.19 17.72-18.07 31 .11 10.34 3.86 18.95 11.22 25.8 3.34 3.17 7.07 5.62 11.22 7.35-.9 2.61-1.85 5.11-2.86 7.51zM119.11 7.24c0 8.1-2.96 15.67-8.86 22.67-7.12 8.32-15.73 13.13-25.07 12.37a25.27 25.27 0 01-.19-3.08c0-7.78 3.39-16.1 9.4-22.9 3-3.44 6.82-6.31 11.45-8.6 4.62-2.26 8.99-3.51 13.1-3.74.12 1.1.17 2.2.17 3.28z"/></svg>
+        </div>
+        <div class="menu-item menu-app-name" id="menu-app-name">Finder</div>
+        <div class="menu-item" data-menu="file">File</div>
+        <div class="menu-item" data-menu="edit">Edit</div>
+        <div class="menu-item" data-menu="view">View</div>
+        <div class="menu-item" data-menu="window">Window</div>
+        <div class="menu-item" data-menu="help">Help</div>
+      </div>
+      <div class="menu-center">
+        <div class="menu-item menu-weather" id="menu-weather">
+          <span id="menu-weather-display">🌤️ 68°</span>
+        </div>
+        <div class="menu-item menu-clock" id="menu-clock">
+          <span id="menu-time">17:00</span>
+        </div>
+      </div>
+      <div class="menu-right">
+        <div class="menu-icon" id="menu-control-center" title="Control Center">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="6" height="3" rx="1.5"/><rect x="9" y="2" width="6" height="3" rx="1.5"/><rect x="1" y="7" width="6" height="3" rx="1.5"/><rect x="9" y="11" width="6" height="3" rx="1.5"/></svg>
+        </div>
+        <div class="menu-icon" id="menu-spotlight" title="Spotlight">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+        </div>
+        <div class="menu-icon" id="menu-wifi" title="Wi-Fi">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 18l-1.4-1.4c.8-.8 1.8-.8 2.8 0L12 18zm-3.5-3.5l-1.4-1.4c2.7-2.7 7.1-2.7 9.8 0l-1.4 1.4c-1.9-1.9-5.1-1.9-7 0zm-3.6-3.5L3.5 9.6c4.7-4.7 12.3-4.7 17 0L19.1 11c-3.9-3.9-10.2-3.9-14.2 0z"/></svg>
+        </div>
+        <div class="menu-icon menu-battery" id="menu-battery" title="Battery">
+          <svg width="22" height="12" viewBox="0 0 22 12" fill="none">
+            <rect x="0.5" y="0.5" width="18" height="11" rx="2" stroke="currentColor" stroke-width="1"/>
+            <rect x="19" y="3" width="2.5" height="5" rx="1" fill="currentColor" opacity="0.5"/>
+            <rect id="battery-fill" x="2" y="2" width="15" height="7" rx="1" fill="currentColor"/>
+          </svg>
+          <span class="battery-pct" id="battery-pct">100%</span>
+        </div>
+        <div class="menu-icon" id="menu-volume" title="Volume">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+        </div>
+        <div class="menu-icon" id="menu-notifications" title="Notification Center">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menu Dropdowns -->
+    <div id="menu-dropdown" class="menu-dropdown hidden"></div>
+
+    <!-- Volume Popover -->
+    <div id="volume-popover" class="popover hidden">
+      <div class="popover-title">Volume</div>
+      <div class="slider-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7 9v6h4l5 5V4l-5 5H7z"/></svg>
+        <input type="range" id="volume-slider" min="0" max="100" value="80" class="slider">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+      </div>
+    </div>
+
+    <!-- Calendar Popover -->
+    <div id="calendar-popover" class="popover calendar-popover hidden">
+      <div id="calendar-content"></div>
+    </div>
+
+    <!-- Dock -->
+    <div id="dock-wrapper" class="dock-wrapper">
+      <div id="dock" class="dock"></div>
+    </div>
+
+    <!-- Spotlight -->
+    <div id="spotlight-overlay" class="spotlight-overlay hidden">
+      <div class="spotlight-container">
+        <div class="spotlight-search">
+          <svg class="spotlight-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>
+          <input type="text" id="spotlight-input" placeholder="Spotlight Search" autocomplete="off">
+          <span class="spotlight-hint">ESC</span>
+        </div>
+        <div id="spotlight-results" class="spotlight-results hidden"></div>
+      </div>
+    </div>
+
+    <!-- Launchpad -->
+    <div id="launchpad-overlay" class="launchpad-overlay hidden">
+      <div class="launchpad-search">
+        <input type="text" id="launchpad-search" placeholder="Search apps..." autocomplete="off">
+      </div>
+      <div id="launchpad-grid" class="launchpad-grid"></div>
+    </div>
+
+    <!-- Mission Control -->
+    <div id="mission-control" class="mission-control hidden"></div>
+
+    <!-- App Switcher -->
+    <div id="app-switcher" class="app-switcher hidden"></div>
+
+    <!-- Control Center -->
+    <div id="control-center" class="control-center hidden"></div>
+
+    <!-- Notification Center -->
+    <div id="notification-center" class="notification-center hidden"></div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Context Menu -->
+    <div id="context-menu" class="context-menu hidden"></div>
+
+    <!-- Screensaver -->
+    <div id="screensaver" class="screensaver hidden">
+      <canvas id="screensaver-canvas"></canvas>
+      <div id="screensaver-clock" class="screensaver-clock hidden"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

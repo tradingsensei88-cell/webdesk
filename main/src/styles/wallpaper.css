@@ -1,0 +1,75 @@
+/* ═══════════════════════════════════════════════════
+   Wallpapers — CSS Gradient Meshes
+   ═══════════════════════════════════════════════════ */
+.wallpaper, .wallpaper-canvas, .wallpaper-video {
+  position: absolute; inset: 0; z-index: 0;
+}
+.wallpaper, .wallpaper-video { transition: opacity 800ms var(--smooth); }
+.wallpaper-video { width: 100%; height: 100%; object-fit: cover; }
+.wallpaper-canvas { z-index: 1; pointer-events: none; }
+
+/* Aurora (default) */
+.wallpaper-aurora, .wp-aurora {
+  background: linear-gradient(135deg, #0a0e2a 0%, #1a0533 25%, #0d1f3c 50%, #071a2c 75%, #0a2a3a 100%);
+  background-size: 400% 400%;
+  animation: auroraShift 25s ease infinite;
+}
+@keyframes auroraShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 100% 25%; }
+  50% { background-position: 100% 75%; }
+  75% { background-position: 0% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Sunset Dunes */
+.wallpaper-sunset, .wp-sunset {
+  background: linear-gradient(135deg, #2d0a1e 0%, #6b1d3a 20%, #b34525 45%, #d4682a 60%, #3a1040 85%, #1a0520 100%);
+  background-size: 400% 400%;
+  animation: sunsetShift 25s ease infinite;
+}
+@keyframes sunsetShift {
+  0% { background-position: 0% 50%; }
+  33% { background-position: 100% 30%; }
+  66% { background-position: 50% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glacier */
+.wallpaper-glacier, .wp-glacier {
+  background: linear-gradient(135deg, #e8eff5 0%, #a8c8e0 25%, #6a9ab8 50%, #4a6a80 75%, #2d3a45 100%);
+  background-size: 400% 400%;
+  animation: glacierShift 25s ease infinite;
+}
+@keyframes glacierShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Void — pure black, particles via canvas */
+.wallpaper-void, .wp-void { background: #000; }
+
+/* Sonoma Hills */
+.wallpaper-sonoma, .wp-sonoma {
+  background: linear-gradient(160deg, #c19a5b 0%, #8a7a4a 20%, #6b8050 40%, #4a6840 60%, #7a9050 80%, #d4b070 100%);
+  background-size: 400% 400%;
+  animation: sonomaShift 25s ease infinite;
+}
+@keyframes sonomaShift {
+  0% { background-position: 0% 50%; }
+  33% { background-position: 80% 20%; }
+  66% { background-position: 30% 80%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Neon City */
+.wallpaper-neon, .wp-neon {
+  background: #0a0a12;
+  background-image:
+    linear-gradient(rgba(255,0,150,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.07) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% 120%, rgba(255,0,150,0.15), transparent 60%),
+    radial-gradient(ellipse at 50% -20%, rgba(0,255,255,0.1), transparent 60%);
+  background-size: 60px 60px, 60px 60px, 100% 100%, 100% 100%;
+}

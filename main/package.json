@@ -1,0 +1,15 @@
+{
+  "name": "nexus-os",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"npm run dev --prefix ../Editor -- --port 5174\" \"cd ../Converter && python app.py\" \"npm run nexus --prefix ../transcripter/transcribe/frontend\" \"cd ../transcripter/transcribe/backend && python -m uvicorn server:app --port 8005\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "vite": "^6.2.0"
+  }
+}
