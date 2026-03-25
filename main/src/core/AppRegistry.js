@@ -12,9 +12,9 @@ export const APP_REGISTRY = [
   { id: 'weather',    name: 'Weather',       icon: '🌤️', defaultWidth: 380, defaultHeight: 520 },
   { id: 'music',      name: 'Music',         icon: '🎵', defaultWidth: 360, defaultHeight: 560 },
   { id: 'texteditor', name: 'TextEdit',      icon: '📄', defaultWidth: 680, defaultHeight: 500 },
-  { id: 'editor',     name: 'Pdftor',       icon: '/logo1.png', defaultWidth: 800, defaultHeight: 600, url: 'http://localhost:5174' },
-  { id: 'converter',  name: 'Converter',     icon: '/logo3.png', defaultWidth: 600, defaultHeight: 450, url: 'http://localhost:5000' },
-  { id: 'transcripter', name: 'Transcripter', icon: '/logo2.png', defaultWidth: 800, defaultHeight: 600, url: 'http://localhost:3005' },
+  { id: 'editor',     name: 'Pdftor',       icon: '/logo1.png', defaultWidth: 800, defaultHeight: 600, url: 'https://pdftor-tools.vercel.app' },
+  { id: 'converter',  name: 'Converter',     icon: '/logo3.png', defaultWidth: 600, defaultHeight: 450, url: 'https://converter-tools.vercel.app' },
+  { id: 'transcripter', name: 'Transcripter', icon: '/logo2.png', defaultWidth: 800, defaultHeight: 600, url: 'https://transcripter-tools.vercel.app' },
   { id: 'trash',      name: 'Trash',         icon: '🗑️', defaultWidth: 400, defaultHeight: 300 },
 ];
 

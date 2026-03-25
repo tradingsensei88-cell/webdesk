@@ -20,13 +20,13 @@ from PyPDF2 import PdfReader, PdfWriter, PdfMerger
 
 # ─── App Setup ────────────────────────────────────────────────────────────────
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOAD_DIR = BASE_DIR / 'uploads'
 CONVERTED_DIR = BASE_DIR / 'converted'
 UPLOAD_DIR.mkdir(exist_ok=True)
 CONVERTED_DIR.mkdir(exist_ok=True)
 
-app = Flask(__name__, static_folder='static', static_url_path='')
+app = Flask(__name__, static_folder='../static', static_url_path='')
 app.config['MAX_CONTENT_LENGTH'] = 20 * 1024 * 1024  # 20 MB
 CORS(app)
 
@@ -39,7 +39,6 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(message)s',
     handlers=[
-        logging.FileHandler(LOG_DIR / 'fileforge.log'),
         logging.StreamHandler(sys.stdout),
     ],
 )
@@ -120,11 +119,11 @@ LIBREOFFICE = _find_libreoffice()
 # ─── Routes: Static ──────────────────────────────────────────────────────────
 
 @app.route('/')
-def index():
+def index_route():
     return send_from_directory(app.static_folder, 'index.html')
 
 
-@app.route('/health')
+@app.route('/api/health')
 def health():
     return jsonify({
         'status': 'ok',
